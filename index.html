@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VisLstm</title>
+  <style type="text/css" media="all">
+    .modal-dialog{
+      width:1000px;
+    }
+    .value{
+      position:absolute;
+      font-size:20px;
+      background-color:yellow;
+    }
+    th{
+      width:100px;
+    }
+    td{
+      width:100px;
+      max-width:100px;
+      overflow:hidden;
+    }
+  </style>
+  <link rel="stylesheet" href="main.css"/>
+  <script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="angular.js" type="text/javascript" charset="utf-8"></script>
+  <script src="app.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<div ng-app="mainApp">
+  <div ng-controller="MainCtrl">
+    <table border="1">
+      <tr>
+        <th>x</th>
+        <td>{{x}}</td>
+        <th>h(t-1)</th>
+        <td>{{h_tm1}}</td>
+        <th>c(t-1)</th>
+        <td>{{c_tm1}}</td>
+      </tr>
+    </table>
+
+    <br />
+    <table border="1">
+      <tr>
+        <th>W_i</th>
+        <td>{{W_i}}</td>
+        <th>W_f</th>
+        <td>{{W_f}}</td>
+        <th>W_o</th>
+        <td>{{W_o}}</td>
+        <th>W_c</th>
+        <td>{{W_c}}</td>
+      </tr>
+      <tr>
+        <th>U_i</th>
+        <td>{{U_i}}</td>
+        <th>U_f</th>
+        <td>{{U_f}}</td>
+        <th>U_o</th>
+        <td>{{U_o}}</td>
+        <th>U_c</th>
+        <td>{{U_c}}</td>
+      </tr>
+      <tr>
+        <th>b_i</th>
+        <td>{{b_i}}</td>
+        <th>b_f</th>
+        <td>{{b_f}}</td>
+        <th>b_o</th>
+        <td>{{b_o}}</td>
+        <th>b_c</th>
+        <td>{{b_c}}</td>
+      </tr>
+    </table>
+    <br />
+    <table border="1">
+      <tr>
+        <th>wx_i</th>
+        <td>{{wx_i}}</td>
+        <th>wx_f</th>
+        <td>{{wx_f}}</td>
+        <th>wx_o</th>
+        <td>{{wx_o}}</td>
+        <th>wx_c</th>
+        <td>{{wx_c}}</td>
+      </tr>
+      <tr>
+        <th>uh_i</th>
+        <td>{{uh_i}}</td>
+        <th>uh_f</th>
+        <td>{{uh_f}}</td>
+        <th>uh_o</th>
+        <td>{{uh_o}}</td>
+        <th>uh_c</th>
+        <td>{{uh_c}}</td>
+      </tr>
+      <tr>
+        <th>b_i</th>
+        <td>{{b_i}}</td>
+        <th>b_f</th>
+        <td>{{b_f}}</td>
+        <th>b_o</th>
+        <td>{{b_o}}</td>
+        <th>b_c</th>
+        <td>{{b_c}}</td>
+      </tr>
+      <tr>
+        <th>sum</th>
+        <td>{{wx_i + uh_i + b_i}}</td>
+        <th>sum</th>
+        <td>{{wx_f + uh_f + b_f}}</td>
+        <th>sum</th>
+        <td>{{wx_o + uh_o + b_o}}</td>
+        <th>sum</th>
+        <td>{{wx_c + uh_c + b_c}}</td>
+      </tr>
+    </table>
+
+    <br />
+    <table border="1">
+      <tr>
+        <th>i</th>
+        <td>{{i}}</td>
+        <th>f</th>
+        <td>{{f}}</td>
+        <th>o</th>
+        <td>{{o}}</td>
+        <th>c</th>
+        <td>{{c}}</td>
+        <th>cell</th>
+        <td>{{cell}}</td>
+        <th>h</th>
+        <td><strong>{{h}}<strong></td>
+      </tr>
+    </table>
+    <input type="button" style="background-color:red" ng-click="next()" value="next"/>
+    ||
+    <input type="button" ng-click="x_01()"  value="01" ng-class="{'yellow':selected_mode == '01'}"/>
+
+    <input type="button" ng-click="x_001()"  value="001" ng-class="{'yellow':selected_mode == '001'}"/>
+
+    <input type="button" ng-click="x_0001()"  value="0001" ng-class="{'yellow':selected_mode == '0001'}"/>
+    <input type="button" ng-click="x_00001()"  value="00001" ng-class="{'yellow':selected_mode == '00001'}"/>
+
+
+    <div class="container">
+      <img src="lstm.png" alt=""/>
+      <div class="st x">{{x}}</div>
+      <div class="st c_tm1">{{c_tm1}}</div>
+      <div class="st b_i">{{b_i}}</div>
+      <div class="st b_f">{{b_f}}</div>
+      <div class="st b_o">{{b_o}}</div>
+      <div class="st b_c">{{b_c}}</div>
+      <div class="st wx_i">{{wx_i}}</div>
+      <div class="st wx_f">{{wx_f}}</div>
+      <div class="st wx_o">{{wx_o}}</div>
+      <div class="st wx_c">{{wx_c}}</div>
+      <div class="st uh_i">{{uh_i}}</div>
+      <div class="st uh_f">{{uh_f}}</div>
+      <div class="st uh_o">{{uh_o}}</div>
+      <div class="st uh_c">{{uh_c}}</div>
+      <div class="st i">{{i}}</div>
+      <div class="st f">{{f}}</div>
+      <div class="st o">{{o}}</div>
+      <div class="st c">{{c}}</div>
+      <div class="st cell">{{cell}}</div>
+      <div class="st tanh_cell">{{tanh_cell}}</div>
+      <div class="st h">{{h}}</div>
+
+    </div>
+    <div class="equation-container">
+      <img src="equation.png" alt=""/>
+      <div>
+        hard sigmoid σ(x) = 0.2x + 0.5 (-2.5 &lt; x &lt; 2.5)
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+

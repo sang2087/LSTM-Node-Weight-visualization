@@ -1,0 +1,127 @@
+.yellow {
+  background-color: yellow;
+}
+.container {
+  position: relative;
+  margin-top: 20px;
+}
+.container.node-0 {
+  margin-left: -60px;
+}
+.container.node-1 {
+  margin-left: 600px;
+}
+.container img {
+  position: absolute;
+  left: 100px;
+  width: 600px;
+}
+.equation-container {
+  position: absolute;
+  right: 0px;
+}
+.equation-container img {
+  width: 400px;
+}
+.equation-container div {
+  font-size: 20px;
+}
+table {
+  margin-bottom: 10px;
+}
+div.st {
+  color: blue;
+  position: absolute;
+  width: 40px;
+  overflow: hidden;
+}
+div.st.x {
+  top: 190px;
+}
+div.st.h_tm1 {
+  top: 190px;
+}
+div.st.c_tm1 {
+  top: 240px;
+  left: 420px;
+}
+div.st.b_i {
+  top: -15px;
+  left: 350px;
+}
+div.st.b_f {
+  top: 375px;
+  left: 430px;
+}
+div.st.b_o {
+  top: -15px;
+  left: 600px;
+}
+div.st.b_c {
+  top: 235px;
+  left: 75px;
+}
+div.st.wx_i {
+  top: -15px;
+  left: 300px;
+}
+div.st.wx_f {
+  top: 375px;
+  left: 390px;
+}
+div.st.wx_o {
+  top: -15px;
+  left: 550px;
+}
+div.st.wx_c {
+  top: 185px;
+  left: 75px;
+}
+div.st.uh_i {
+  top: -15px;
+  left: 220px;
+}
+div.st.uh_f {
+  top: 375px;
+  left: 330px;
+}
+div.st.uh_o {
+  top: -15px;
+  left: 500px;
+}
+div.st.uh_c {
+  top: 145px;
+  left: 75px;
+}
+div.st.i {
+  top: 108px;
+  left: 272px;
+}
+div.st.f {
+  top: 275px;
+  left: 341px;
+}
+div.st.o {
+  top: 111px;
+  left: 520px;
+}
+div.st.cell {
+  top: 153px;
+  left: 349px;
+}
+div.st.h {
+  left: 650px;
+  top: 190px;
+}
+div.st.output {
+  top: 190px;
+  left: 740px;
+}
+div.st.c {
+  top: 210px;
+  left: 260px;
+}
+div.st.tanh_cell {
+  top: 170px;
+  left: 500px;
+}
